@@ -1,0 +1,577 @@
+/* src/App.css - DESAIN LOMBA: SUPER MODERN & RAPIH TERPUSAT */
+
+/* --- 1. Global & Font --- */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  background: linear-gradient(135deg, #1f2a37, #2d3748); /* Gradient latar belakang gelap */
+  color: #e2e8f0; /* Teks terang untuk kontras */
+  margin: 0;
+  padding: 40px 20px; /* Padding untuk desktop, lebih kecil di mobile */
+  display: flex; /* Untuk memusatkan konten secara vertikal */
+  justify-content: center; /* Memusatkan konten secara horizontal */
+  min-height: 100vh; /* Tinggi minimum 100% viewport */
+}
+
+/* Container utama untuk memusatkan seluruh aplikasi */
+.app-container {
+  max-width: 960px; /* Lebar maksimal lebih besar */
+  width: 100%;
+  margin: 0 auto; /* Memastikan tetap di tengah */
+  display: flex;
+  flex-direction: column;
+  gap: 30px; /* Jarak antar header dan konten */
+}
+
+/* --- 2. Header Utama (Diperbarui) --- */
+.app-header {
+  text-align: center; /* Header di tengah */
+  background: rgba(45, 55, 72, 0.7); /* Glassmorphism effect */
+  backdrop-filter: blur(10px); /* Efek blur kaca */
+  border: 1px solid rgba(71, 85, 105, 0.3); /* Border yang lembut */
+  color: #edf2f7;
+  padding: 40px 50px;
+  border-radius: 25px; /* Radius lebih besar */
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+  position: relative;
+  overflow: hidden; /* Untuk efek latar belakang */
+}
+
+/* Efek latar belakang abstraktif */
+.app-header::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle at top left, rgba(71, 85, 105, 0.2) 0%, transparent 70%),
+              radial-gradient(circle at bottom right, rgba(71, 85, 105, 0.2) 0%, transparent 70%);
+  z-index: -1;
+  animation: rotateBg 20s linear infinite;
+}
+
+.app-header h1 {
+  margin: 0;
+  font-size: 3rem; /* 48px, lebih besar dan impactful */
+  font-weight: 700;
+  letter-spacing: -1.5px;
+  text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.app-tagline {
+  font-size: 1.1rem;
+  opacity: 0.8;
+  margin-top: 10px;
+  font-weight: 400;
+}
+
+/* --- 3. Container Tampilan Utama (Glassmorphism) --- */
+.view-container {
+  background: rgba(45, 55, 72, 0.7); /* Glassmorphism effect */
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(71, 85, 105, 0.3);
+  border-radius: 25px;
+  padding: 35px 45px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  animation: fadeIn 0.6s ease-out forwards; /* Animasi fade-in */
+}
+
+.view-container h2 {
+  margin-top: 0;
+  margin-bottom: 30px;
+  color: #a0aec0; /* Warna judul yang lembut */
+  border-bottom: 1px solid rgba(71, 85, 105, 0.3); /* Garis bawah yang halus */
+  padding-bottom: 18px;
+  font-size: 2rem; /* 32px */
+  font-weight: 600;
+  text-align: center; /* Judul di tengah */
+}
+
+/* --- 4. Tampilan 1: Daftar Kamar (Neumorphism / Terpusat) --- */
+.room-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Tetap 3 kolom */
+  gap: 25px;
+}
+
+.room-card {
+  background: linear-gradient(145deg, #37475f, #2a3444); /* Neumorphism background */
+  box-shadow: 7px 7px 15px rgba(0,0,0,0.4), -7px -7px 15px rgba(71,85,105,0.2); /* Neumorphism shadow */
+  border: none;
+  border-radius: 18px; /* Sudut lebih lembut */
+  padding: 30px 20px;
+  font-size: 1.25rem; /* 20px */
+  font-weight: 600;
+  color: #a0aec0;
+  cursor: pointer;
+  text-align: center;
+  transition: all 0.3s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.room-card .icon-card {
+  font-size: 2.5rem; /* Ikon lebih besar */
+  color: #63b3ed; /* Warna ikon yang menonjol */
+  margin-bottom: 8px;
+  transition: color 0.3s ease-in-out;
+}
+
+.room-card:hover {
+  background: linear-gradient(145deg, #2a3444, #37475f); /* Inset effect on hover */
+  box-shadow: inset 5px 5px 10px rgba(0,0,0,0.3), inset -5px -5px 10px rgba(71,85,105,0.15);
+  color: #63b3ed; /* Warna teks berubah */
+  transform: translateY(0); /* Hapus translateY */
+}
+.room-card:hover .icon-card {
+  color: #c0deff; /* Warna ikon berubah */
+}
+
+/* --- 5. Tombol & Search Bar (Umum) --- */
+.btn-back {
+  background: linear-gradient(145deg, #37475f, #2a3444);
+  box-shadow: 3px 3px 7px rgba(0,0,0,0.4), -3px -3px 7px rgba(71,85,105,0.2);
+  border: none;
+  color: #a0aec0;
+  border-radius: 12px;
+  padding: 12px 20px;
+  font-size: 0.95rem; /* 15.2px */
+  font-weight: 500;
+  cursor: pointer;
+  margin-bottom: 28px;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px; /* Jarak antara ikon dan teks */
+}
+.btn-back:hover {
+  box-shadow: inset 3px 3px 7px rgba(0,0,0,0.3), inset -3px -3px 7px rgba(71,85,105,0.15);
+  color: #63b3ed;
+}
+
+.search-bar {
+  width: 100%;
+  padding: 16px 20px;
+  font-size: 1rem;
+  font-family: 'Poppins', sans-serif;
+  border-radius: 12px;
+  border: none; /* Hapus border */
+  background: #2a3444; /* Background input gelap */
+  color: #e2e8f0;
+  box-shadow: inset 3px 3px 7px rgba(0,0,0,0.4), inset -3px -3px 7px rgba(71,85,105,0.2);
+  margin-bottom: 28px;
+  transition: box-shadow 0.2s;
+}
+.search-bar::placeholder {
+  color: #a0aec0;
+  opacity: 0.7;
+}
+.search-bar:focus {
+  outline: none;
+  box-shadow: inset 3px 3px 7px rgba(0,0,0,0.4), inset -3px -3px 7px rgba(71,85,105,0.2), 0 0 0 3px rgba(99, 179, 237, 0.4); /* Fokus dengan highlight biru */
+}
+
+/* --- 6. Tampilan 2: Daftar Mahasiswa --- */
+.student-list-simple {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.student-name-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: linear-gradient(145deg, #37475f, #2a3444);
+  box-shadow: 5px 5px 10px rgba(0,0,0,0.4), -5px -5px 10px rgba(71,85,105,0.2);
+  border: none;
+  padding: 20px 28px;
+  border-radius: 15px;
+  text-align: left;
+  font-size: 1.05rem;
+  font-weight: 500;
+  color: #cbd5e1;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.student-name-card:hover {
+  background: linear-gradient(145deg, #2a3444, #37475f);
+  box-shadow: inset 4px 4px 8px rgba(0,0,0,0.3), inset -4px -4px 8px rgba(71,85,105,0.15);
+  color: #63b3ed;
+}
+
+.student-name {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 600;
+  color: #e2e8f0;
+}
+.student-name svg {
+  color: #63b3ed;
+  font-size: 1.2rem;
+}
+
+.student-points-badge {
+  padding: 8px 16px;
+  border-radius: 25px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: white;
+  flex-shrink: 0;
+  transition: background-color 0.3s;
+}
+
+.student-points-badge.zero-points {
+  background-color: #4a5568; /* Abu-abu gelap */
+}
+.student-points-badge.has-points {
+  background-color: #e53e3e; /* Merah menyala */
+  animation: pulse 1.5s infinite;
+  box-shadow: 0 0 10px rgba(229, 62, 62, 0.5); /* Shadow untuk poin */
+}
+
+/* --- 7. Tampilan 3: Detail Mahasiswa --- */
+.student-detail-header {
+  background: rgba(45, 55, 72, 0.7);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(71, 85, 105, 0.3);
+  padding: 30px 40px;
+  border-radius: 20px;
+  margin-bottom: 30px;
+  text-align: center; /* Info mahasiswa di tengah */
+}
+.student-detail-header h3 {
+  margin: 0 0 5px 0;
+  font-size: 2.2rem; /* 35px */
+  font-weight: 700;
+  color: #63b3ed;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.3);
+}
+.student-detail-header p {
+  margin: 0;
+  font-size: 1.15rem; /* 18.4px */
+  color: #a0aec0;
+}
+
+.points-section {
+  display: flex;
+  flex-direction: column; /* Poin dan tombol reset di bawah */
+  align-items: center;
+  gap: 15px;
+  margin-top: 25px;
+}
+
+.total-points {
+  font-size: 1.4rem; /* 22.4px */
+  font-weight: 700;
+  color: #a0aec0;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.2);
+}
+.total-points.has-points {
+  color: #fc8181; /* Merah cerah jika ada poin */
+}
+
+.btn-reset {
+  background: linear-gradient(145deg, #e53e3e, #c53030);
+  box-shadow: 5px 5px 10px rgba(0,0,0,0.4), -5px -5px 10px rgba(229,62,62,0.2);
+  border: none;
+  color: white;
+  padding: 10px 18px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.btn-reset:hover {
+  background: linear-gradient(145deg, #c53030, #e53e3e);
+  box-shadow: inset 3px 3px 7px rgba(0,0,0,0.3), inset -3px -3px 7px rgba(229,62,62,0.15);
+  transform: translateY(-2px);
+}
+.btn-reset svg {
+  font-size: 1rem;
+}
+
+h4 {
+  font-size: 1.6rem; /* 25.6px */
+  font-weight: 600;
+  color: #a0aec0;
+  margin-top: 35px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid rgba(71, 85, 105, 0.3);
+  padding-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+h4 svg {
+  color: #63b3ed;
+}
+
+.schedule-list {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.schedule-item {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  background: linear-gradient(145deg, #37475f, #2a3444);
+  box-shadow: 5px 5px 10px rgba(0,0,0,0.4), -5px -5px 10px rgba(71,85,105,0.2);
+  border: none;
+  padding: 22px 30px;
+  border-radius: 15px;
+  transition: all 0.2s ease;
+}
+.schedule-item:hover {
+  box-shadow: inset 3px 3px 7px rgba(0,0,0,0.3), inset -3px -3px 7px rgba(71,85,105,0.15);
+}
+
+.schedule-info {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  flex-basis: 200px; /* Lebar lebih besar untuk info */
+  flex-grow: 1;
+  margin-right: 15px;
+}
+.schedule-info strong {
+  font-size: 1.15rem; /* 18.4px */
+  font-weight: 600;
+  color: #e2e8f0;
+}
+.schedule-info span {
+  font-size: 0.95rem; /* 15.2px */
+  color: #a0aec0;
+}
+
+.schedule-actions {
+  display: flex;
+  gap: 12px;
+  flex-basis: 300px; /* Lebar lebih besar untuk tombol */
+  flex-grow: 1;
+  justify-content: flex-end;
+}
+
+/* --- 8. Tombol Status (Desain Lomba) --- */
+.btn-status {
+  flex: 1;
+  max-width: 95px; /* Sedikit lebih lebar */
+  padding: 12px 10px;
+  border: none;
+  border-radius: 12px;
+  font-size: 0.8rem; /* 12.8px */
+  font-weight: 600;
+  cursor: pointer;
+  background: linear-gradient(145deg, #37475f, #2a3444); /* Default neumorphism */
+  box-shadow: 3px 3px 7px rgba(0,0,0,0.4), -3px -3px 7px rgba(71,85,105,0.2);
+  color: #a0aec0;
+  transition: all 0.2s ease-in-out;
+  display: flex; /* Untuk ikon */
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+}
+.btn-status svg {
+  font-size: 1.1rem;
+}
+
+.btn-status:hover {
+  box-shadow: inset 2px 2px 5px rgba(0,0,0,0.3), inset -2px -2px 5px rgba(71,85,105,0.15);
+  color: #e2e8f0;
+}
+
+/* Status Aktif yang Jelas & Lebih Vibrant */
+.btn-status.present.active {
+  background: linear-gradient(145deg, #38a169, #2f855a); /* Hijau */
+  box-shadow: inset 2px 2px 5px rgba(0,0,0,0.3), inset -2px -2px 5px rgba(56, 161, 105, 0.15), 0 0 15px rgba(56, 161, 105, 0.5);
+  color: white;
+}
+.btn-status.excused.active {
+  background: linear-gradient(145deg, #d69e2e, #b7791f); /* Kuning */
+  box-shadow: inset 2px 2px 5px rgba(0,0,0,0.3), inset -2px -2px 5px rgba(214, 158, 46, 0.15), 0 0 15px rgba(214, 158, 46, 0.5);
+  color: white;
+}
+.btn-status.absent.active {
+  background: linear-gradient(145deg, #e53e3e, #c53030); /* Merah */
+  box-shadow: inset 2px 2px 5px rgba(0,0,0,0.3), inset -2px -2px 5px rgba(229, 62, 62, 0.15), 0 0 15px rgba(229, 62, 62, 0.5);
+  color: white;
+}
+
+/* --- 9. Animasi --- */
+@keyframes pulse {
+  0% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.03); opacity: 0.9; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes rotateBg {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* --- 10. Responsif (Penting) --- */
+@media (max-width: 992px) {
+  .app-container {
+    gap: 25px;
+  }
+  .app-header {
+    padding: 30px 40px;
+  }
+  .app-header h1 {
+    font-size: 2.5rem;
+  }
+  .view-container {
+    padding: 30px 40px;
+  }
+  .room-list {
+    grid-template-columns: repeat(2, 1fr); /* 2 kolom di tablet besar */
+  }
+}
+
+@media (max-width: 768px) {
+  body {
+    padding: 25px 15px;
+  }
+  .app-header {
+    padding: 25px 30px;
+    border-radius: 20px;
+  }
+  .app-header h1 {
+    font-size: 2rem; /* 32px */
+  }
+  .app-tagline {
+    font-size: 1rem;
+  }
+  .view-container {
+    padding: 25px 30px;
+    border-radius: 20px;
+  }
+  .view-container h2 {
+    font-size: 1.75rem;
+  }
+  .room-list {
+    grid-template-columns: repeat(2, 1fr); /* Tetap 2 kolom */
+    gap: 15px;
+  }
+  .room-card {
+    padding: 25px 15px;
+    font-size: 1.1rem;
+  }
+  .room-card .icon-card {
+    font-size: 2rem;
+  }
+  .student-detail-header h3 {
+    font-size: 1.8rem;
+  }
+  .points-section {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+  }
+  .schedule-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+    padding: 18px 25px;
+  }
+  .schedule-actions {
+    width: 100%;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .btn-status {
+    max-width: 100px;
+    flex-basis: auto;
+  }
+}
+
+@media (max-width: 480px) {
+  body {
+    padding: 20px 10px;
+  }
+  .app-container {
+    gap: 20px;
+  }
+  .app-header {
+    padding: 20px 25px;
+    border-radius: 18px;
+  }
+  .app-header h1 {
+    font-size: 1.75rem; /* 28px */
+  }
+  .app-tagline {
+    font-size: 0.9rem;
+  }
+  .view-container {
+    padding: 20px 25px;
+    border-radius: 18px;
+  }
+  .view-container h2 {
+    font-size: 1.5rem;
+  }
+  .room-list {
+    grid-template-columns: 1fr; /* 1 kolom di HP */
+    gap: 12px;
+  }
+  .room-card {
+    padding: 20px 15px;
+    font-size: 1rem;
+  }
+  .room-card .icon-card {
+    font-size: 1.8rem;
+  }
+  .student-name-card {
+    padding: 16px 20px;
+    font-size: 1rem;
+  }
+  .student-name svg {
+    font-size: 1rem;
+  }
+  .student-points-badge {
+    padding: 5px 10px;
+    font-size: 0.75rem;
+  }
+  .student-detail-header h3 {
+    font-size: 1.5rem;
+  }
+  .schedule-info strong {
+    font-size: 1rem;
+  }
+  .schedule-info span {
+    font-size: 0.85rem;
+  }
+  .schedule-actions {
+    gap: 8px;
+  }
+  .btn-status {
+    padding: 8px 5px;
+    font-size: 0.75rem;
+    max-width: 80px;
+  }
+  .btn-status svg {
+    font-size: 1rem;
+  }
+}
